@@ -1,2 +1,8 @@
-# python_rpg_game
-Python_rpg_game
+# Simple RPG Game
+Simple RPG game built in Python 3
+
+## Usage
+
+## Examples
+
+## TODOs
