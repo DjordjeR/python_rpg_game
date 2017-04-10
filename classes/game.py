@@ -69,7 +69,7 @@ class Person:  # Person class
 
     # Print out options for choosing action
     def choose_action(self):
-        print("Actions")
+        print(Bcolors.HEADER + "Actions" + Bcolors.ENDC)
         i = 1
         for item in self.action:
             print(str(i) + " :", item)
@@ -77,7 +77,7 @@ class Person:  # Person class
 
     # Print out options for choosing magic
     def choose_magic(self):
-        print("Magic spells")
+        print(Bcolors.HEADER + "Magic spells" + Bcolors.ENDC)
         i = 1
         for spell in self.magic:
             print(str(i) + " :", spell["name"], "(cost :", str(spell["cost"])
