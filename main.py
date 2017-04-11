@@ -2,7 +2,7 @@ from classes.game import Person, Bcolors
 
 magic = [{"name": "Fire", "cost": 9, "dmg": 100},
          {"name": "Thunder", "cost": 13, "dmg": 124},
-         {"name": "Buzzard", "cost": 11, "dmg": 110}]
+         {"name": "Blizzard", "cost": 11, "dmg": 110}]
 
 player = Person(460, 65, 60, 34, magic)
 enemy = Person(1200, 65, 45, 25, magic)
