@@ -42,12 +42,6 @@ class Person:  # Person class
     def generate_damage(self):
         return random.randrange(self.atkl, self.atkh)
 
-    # Randomly generate spell damage output
-    def generate_spell_damage(self, i):
-        ngl = self.magic[i]["dmg"] - 5
-        ngh = self.magic[i]["dmg"] + 5
-        return random.randrange(ngl, ngh)
-
     # Subtract taken damage from current health status
     def take_damage(self, dmg):
         self.hp -= dmg
@@ -55,17 +49,15 @@ class Person:  # Person class
             self.hp = 0
         return self.hp
 
+    # Ability to get some health back
+    def heal(self, dmg):
+        self.hp += dmg
+        if self.hp > self.max_hp:
+            self.hp = self.max_hp
+
     # Reduce magic points when using magic
     def reduce_mp(self, cost):
         self.mp -= cost
-
-    # Return name of the spell used
-    def get_spell_name(self, i):
-        return self.magic[i]["name"]
-
-    # Return cost of the spell used
-    def get_spell_mp_cost(self, i):
-        return self.magic[i]["cost"]
 
     # Print out options for choosing action
     def choose_action(self):
@@ -80,6 +72,6 @@ class Person:  # Person class
         print(Bcolors.HEADER + "Magic spells" + Bcolors.ENDC)
         i = 1
         for spell in self.magic:
-            print(str(i) + " :", spell["name"], "(cost :", str(spell["cost"])
+            print(str(i) + " :", spell.name, "(cost :", str(spell.cost)
                   + ")")
             i += 1
