@@ -14,7 +14,7 @@ class Bcolors:  # class for terminal colors
 
 class Person:  # Person class
     # Constructor
-    def __init__(self, hp, mp, atk, df, magic):
+    def __init__(self, hp, mp, atk, df, magic, items):
         self.max_hp = hp
         self.hp = hp
         self.max_mp = mp
@@ -23,7 +23,8 @@ class Person:  # Person class
         self.atkh = atk + 10
         self.df = df
         self.magic = magic
-        self.action = ["Attack", "Magic"]
+        self.items = items
+        self.action = ["Attack", "Magic", "Items"]
 
     # Getters
     def get_hp(self):
@@ -61,17 +62,25 @@ class Person:  # Person class
 
     # Print out options for choosing action
     def choose_action(self):
-        print(Bcolors.HEADER + "Actions" + Bcolors.ENDC)
+        print("\n" + Bcolors.OKGREEN + Bcolors.BOLD + "ACTIONS:" + Bcolors.ENDC)
         i = 1
         for item in self.action:
-            print(str(i) + " :", item)
+            print("    " + str(i) + ".", item)
             i += 1
 
     # Print out options for choosing magic
     def choose_magic(self):
-        print(Bcolors.HEADER + "Magic spells" + Bcolors.ENDC)
+        print("\n" + Bcolors.OKGREEN + Bcolors.BOLD + "MAGIC:" + Bcolors.ENDC)
         i = 1
         for spell in self.magic:
-            print(str(i) + " :", spell.name, "(cost :", str(spell.cost)
+            print("    " + str(i) + ".", spell.name, "(cost :", str(spell.cost)
                   + ")")
+            i += 1
+
+    # Print out item options
+    def choose_items(self):
+        i = 1;
+        print("\n" + Bcolors.OKGREEN + Bcolors.BOLD + "ITEMS:" + Bcolors.ENDC)
+        for item in self.items:
+            print("    " + str(i) + ".", item.name, ":", item.description, "5")
             i += 1
